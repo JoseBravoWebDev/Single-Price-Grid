@@ -1,0 +1,277 @@
+/* General Reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+h1, h2, h3, h4, h5, h6 {
+   line-height: 1;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+/* End General Reset */
+
+/* General Settings */
+
+@font-face {
+  /* Example */ 
+  font-family: Hanken;
+
+  src:  url('assets/fonts/HankenGrotesk-VariableFont_wght.ttf'),
+        url('assets/fonts/static/HankenGrotesk-Medium.ttf');
+}
+
+:root {
+  /* Primary Colors */
+  --primary: hsl(179, 62%, 43%);
+  --secondary: hsl(71, 73%, 54%);
+  --tertiary: hsl(179, 62%, 48%);
+
+  /* Neutral Colors */
+  --neutral-1: hsl(204, 43%, 93%);
+  --neutral-2: hsl(218, 22%, 67%);
+  --neutral-3: hsl(0, 0%, 100%);
+
+  /* Fonts Family */
+  --ff-body: 'Karla';
+
+  /* Fonts Weight */
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  /* Font Size */
+  --fs-body: 1rem;
+}
+
+/* End General Settings */
+
+/* General Styling */
+
+body {
+  background: var(--neutral-1);
+  font-family: var(--ff-body);
+  font-weight: var(--fw-regular);
+  color: var(--neutral-2);
+  font-size: 1rem;
+
+  /* For this proyect only */
+  display: grid;
+  place-items: center;
+  margin: 2rem;
+}
+
+/* End General Styling */
+
+/* Utilities */
+
+.grid-group {
+  display: grid;
+}
+
+/* End Utilities */
+
+/* Section Style */
+.product-grid {
+  --padding: 2rem 1.5rem;
+  --gap: 1.5rem;
+
+  --price-cntnt-padding: 1.5rem;
+
+  --btn-margin-top: 2rem;
+  --btn-padding: 0.625rem;
+
+  --company-features-gap: 1rem;
+  --company-features-padding: 1.7rem 1.5rem;
+
+  max-width: 400px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  box-shadow: 0px 0px 15px 3px hsla(218, 22%, 67%, 0.25);
+}
+
+.product-content {
+  background: var(--neutral-3);
+  padding: var(--padding);
+  gap: var(--gap);
+}
+
+.product-title {
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.product-accent {
+  font-size: 0.9375rem;
+  color: var(--secondary);
+  line-height: 1.2;
+  font-weight: var(--fw-bold);
+}
+
+.product-features {
+  font-size: 0.815rem;
+}
+
+.price-content {
+  padding: var(--price-cntnt-padding);
+  background: var(--primary);
+  color: var(--neutral-3);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+}
+
+.price {
+  margin-top: 0.75rem;
+  line-height: 1.5;
+}
+
+.price-accent {
+  font-size: 2rem;
+  font-weight: var(--fw-bold);
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.filter {
+  font-size: 1rem;
+  color: var(--neutral-1);
+  font-weight: var(--fw-regular);
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25rem;
+
+  margin-top: var(--btn-margin-top);
+  padding: var(--btn-padding);
+
+  color: var(--neutral-3);
+  background: var(--secondary);
+  font-weight: var(--fw-bold);
+
+  box-shadow: 0px 1px 15px 5px hsla(179, 62%, 38%,0.25);
+}
+
+.company-features {
+  gap: var(--company-features-gap);
+  padding: var(--company-features-padding);
+
+  color: var(--neutral-1);
+  background: var(--tertiary);
+}
+
+.features-list {
+  font-size: 0.9rem;
+}
+
+@media screen and (min-width: 700px) {
+  .product-grid {
+    --padding: 2.5rem 2rem;
+    --gap: 1rem;
+
+    --price-cntnt-padding: 2.5rem;
+
+    --btn-margin-top: 0.75rem;
+    --btn-padding: 0rem;
+
+    --company-features-gap: 1rem;
+    --company-features-padding: 2.5rem;
+
+    max-width: 600px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .product-title {
+    font-size: 1.4rem;
+  }
+
+  .product-accent {
+    font-size: 1.05rem;
+  }
+
+  .product-features {
+    font-size: 0.9375rem;
+  }
+
+  .price-card {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .price-accent {
+    font-size: 1.75rem;
+  }
+
+  .price-features {
+    font-size: 0.9rem;
+  }
+
+  .features-list {
+    font-size: 0.75rem;
+  }
+}
+
+/* End Section Style */
+
+/* Attribution Style */
+.attribution { 
+  font-size: 11px; 
+  text-align: center; 
+}
+
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
+}
